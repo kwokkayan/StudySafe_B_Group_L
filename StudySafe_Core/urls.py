@@ -1,11 +1,12 @@
-from django.urls import path
-from StudySafe_Core import views
+from email.policy import default
+import imp
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from StudySafe_Core import views, hkumember_api_view
+
+router = DefaultRouter()
+router.register(r'hkumembers', hkumember_api_view.ViewAllHKUMembers, 'view-all-HKUMembers')
 
 urlpatterns = [
-    path('hkumembers/listall', views.ViewAllHKUMembers.as_view(), name="view-all-HKUMembers"),
-    path('hkumembers/create', views.CreateHKUMembers.as_view(), name="create-HKUMembers"),
-    path('hkumembers/searchbyname/<str:name>', views.SearchHKUMembersByName.as_view(), name="search-by-name-HKUMembers"),
-    path('hkumembers/searchbyuid/<int:uid>', views.SearchHKUMembersByUid.as_view(), name="search-by-uid-HKUMembers"),
-    path('hkumembers/modify', views.ModifyHKUMembers.as_view(), name="modify-HKUMembers"),
-    path('hkumembers/delete', views.DeleteHKUMembers.as_view(), name="delete-HKUMembers")
+    path('api/', include(router.urls))
 ]

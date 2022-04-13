@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'StudySafe_Core.apps.StudysafeCoreConfig',
     'StudySafe_Trace.apps.StudysafeTraceConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
