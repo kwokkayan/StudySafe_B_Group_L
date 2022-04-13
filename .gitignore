@@ -1,4 +1,2 @@
 *.sqlite3
 .env
-Pipfile
-Pipefile.lock
