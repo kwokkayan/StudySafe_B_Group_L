@@ -18,5 +18,5 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('StudySafe_Core/', include('StudySafe_Core.urls'))
+    path('studysafe-core/', include('StudySafe_Core.urls'))
 ]
