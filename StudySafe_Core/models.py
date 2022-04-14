@@ -2,7 +2,7 @@
 from django.db import models
 
 class Venues(models.Model):
-        Venue_Code = models.CharField(max_length=20, unique=True,db_column='Venue Code')
+        VenueCode = models.CharField(max_length=20, unique=True,db_column='Venue Code')
         
         Location = models.CharField(max_length=150)
 
