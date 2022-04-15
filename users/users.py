@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from .models import deviceAccounts, MemberAccounts
+from .models import DeviceAccounts, MemberAccounts
 
 #create user account
 class CreateMemberForm(UserCreationForm):
@@ -9,7 +9,7 @@ class CreateMemberForm(UserCreationForm):
 #create device account
 class CreateDeviceForm(UserCreationForm):
     class Meta:
-        model = deviceAccounts
+        model = DeviceAccounts
         fields = ('username',)
 #change user account
 class ChangeMemberForm(UserChangeForm):
@@ -19,5 +19,5 @@ class ChangeMemberForm(UserChangeForm):
 #change device account
 class ChangeDeviceForm(UserChangeForm):
     class Meta:
-        model = deviceAccounts
+        model = DeviceAccounts
         fields = ('username', )
