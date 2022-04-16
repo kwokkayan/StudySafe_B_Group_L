@@ -5,7 +5,7 @@ from .models import User, DeviceAccounts, MemberAccounts
 # Register your models here.
 
 
-
+'''
 class DeviceAdmin (UserAdmin):
     add_form = DeviceCreation
     form = DeviceChange
@@ -17,6 +17,7 @@ class MemberAdmin (UserAdmin):
     form = MemberChange
     model = User
     list_display = ['username', 'first_name', 'last_name', 'emailAddress',]
+'''
 
 
 admin.site.register (DeviceAccounts )

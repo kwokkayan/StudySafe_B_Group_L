@@ -7,6 +7,8 @@ name = "pypi"
 django = "~=4.0"
 environs = "*"
 djangorestframework = "*"
+pyyaml = "*"
+uritemplate = "*"
 
 [dev-packages]
 
