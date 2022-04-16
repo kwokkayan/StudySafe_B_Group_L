@@ -10,7 +10,7 @@ class User(AbstractUser):
 class DeviceAccounts (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     def __str__ (self):
-        return self.user
+        return str(self.user)
 
 class MemberAccounts (models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
@@ -19,4 +19,4 @@ class MemberAccounts (models.Model):
     emailAddress = models.EmailField(verbose_name="email", max_length=60, unique=True)
 
     def __str__(self) :
-        return self.user
+        return str(self.user)
