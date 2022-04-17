@@ -9,6 +9,7 @@ environs = "*"
 djangorestframework = "*"
 pyyaml = "*"
 uritemplate = "*"
+gunicorn = "*"
 
 [dev-packages]
 
