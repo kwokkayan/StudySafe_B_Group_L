@@ -3,7 +3,7 @@ from django.db import models
 from django.forms import ValidationError
 
 # Create your models here.
-class Venues(models.Model):
+class Venue(models.Model):
         Venue_Code = models.CharField(max_length=20, primary_key=True,db_column='Venue Code')
         
         Location = models.CharField(max_length=150)
@@ -27,7 +27,7 @@ class HKUMember(models.Model):
         return 'Name: {}, UID: {}'.format(self.name, self.uid)
 
 class TravelRecord(models.Model):
-    venue_code =  models.ForeignKey('Venues', on_delete=models.CASCADE)
+    venue_code =  models.ForeignKey('Venue', on_delete=models.CASCADE)
     uid = models.ForeignKey('HKUMember', related_name='visited', on_delete=models.CASCADE)
     time_of_entry = models.DateTimeField()
     time_of_exit = models.DateTimeField(null=True)

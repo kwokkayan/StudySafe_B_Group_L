@@ -13,6 +13,6 @@ class TravelRecordViewSet(viewsets.ModelViewSet):
     serializer_class = TravelRecordSerializer
 
 class VenueViewSet(viewsets.ModelViewSet):
-        queryset = Venues.objects.all()
-        serializer_class = VenueSerializer
+    queryset = Venue.objects.all()
+    serializer_class = VenueSerializer
         

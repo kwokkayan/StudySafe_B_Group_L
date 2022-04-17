@@ -2,9 +2,9 @@ from .models import *
 from rest_framework import serializers
 
 class VenueSerializer(serializers.ModelSerializer):
-        class Meta:
-                model = Venues
-                fields = '__all__'
+    class Meta:
+        model = Venue
+        fields = '__all__'
                 
 class TravelRecordSerializer(serializers.ModelSerializer):
     class Meta:
