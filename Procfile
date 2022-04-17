@@ -1,2 +1,2 @@
-release: python manage.py migrate --database=heroku
+release: python manage.py migrate
 web: gunicorn admin.wsgi
