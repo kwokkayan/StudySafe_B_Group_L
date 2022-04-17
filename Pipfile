@@ -11,6 +11,7 @@ pyyaml = "*"
 uritemplate = "*"
 gunicorn = "*"
 whitenoise = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
