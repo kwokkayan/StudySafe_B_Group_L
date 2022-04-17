@@ -1,0 +1,125 @@
+openapi: 3.0.2
+info:
+  title: HKU Members
+  version: 1.0.0
+  description: API for create, list all, view, modify and delete HKU Member records
+paths:
+  /StudySafe_Core/api/hkumembers/:
+    get:
+      operationId: listHKUMembers
+      description: 'Lists all HKU Members'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HKUMember'
+          description: 'Lists all HKU Members'
+      tags:
+      - StudySafe-Core
+    post:
+      operationId: createHKUMember
+      description: 'Creates HKU Member'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HKUMember'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/HKUMember'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/HKUMember'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HKUMember'
+          description: 'Creates HKU Member'
+      tags:
+      - StudySafe-Core
+  /StudySafe_Core/api/hkumembers/{uid}/:
+    get:
+      operationId: retrieveHKUMember
+      description: 'Lists HKU Member with the specified uid'
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        description: A unique value identifying this hku member.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HKUMember'
+          description: 'Lists HKU Member with the specified uid'
+      tags:
+      - StudySafe-Core
+    put:
+      operationId: updateHKUMember
+      description: 'Modifies the HKU Member''s information with the specified uid. If uid is modified, a new record will be created.'
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        description: A unique value identifying this hku member.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HKUMember'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/HKUMember'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/HKUMember'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HKUMember'
+          description: 'Successful modification.'
+      tags:
+      - StudySafe-Core
+    delete:
+      operationId: destroyHKUMember
+      description: 'Deletes the HKU Member with the specified uid.'
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        description: A unique value identifying this hku member.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: 'Successful deletion.'
+      tags:
+      - StudySafe-Core
+components:
+  schemas:
+    HKUMember:
+      type: object
+      properties:
+        uid:
+          type: string
+          maxLength: 10
+        name:
+          type: string
+          maxLength: 150
+      required:
+      - uid
+      - name
