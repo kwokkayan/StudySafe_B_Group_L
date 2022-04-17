@@ -29,7 +29,7 @@ SECRET_KEY = env.str("DJANGO_SECRET")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://studysafe-b-group-l.herokuapp.com/', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['studysafe-b-group-l.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
