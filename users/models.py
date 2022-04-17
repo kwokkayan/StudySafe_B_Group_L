@@ -1,18 +1,24 @@
+from wsgiref.simple_server import demo_app
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.core.validators import EMPTY_VALUES
 
 # Create your models here.
-class DeviceAccounts (AbstractUser):
-    username = models.CharField(max_length=30, unique=True)
 
-    def __str__ (self):
-        return self.username
+class TaskforceAccount(AbstractUser):
+    ROLES = (
+        ('Device', 'Device'),
+        ('Member', 'Member')
+    )
+    role_type = models.CharField(max_length=10, choices=ROLES, default='Device')
+    def clean (self):
+        if self.role_type == 'Member' and (self.email in EMPTY_VALUES or self.first_name in EMPTY_VALUES or self.last_name in EMPTY_VALUES):
+            raise ValidationError ({
+                'email': ValidationError(("Missing email"), code='required'),
+                'first_name': ValidationError(("Missing first_name"), code='required'),
+                'last_name': ValidationError(("Missing last_name"), code='required')
+            })
+    def __str__(self):
+        return "Username: {} User Type: {}".format(self.username, self.role_type)
 
-class MemberAccounts (AbstractUser):
-    username = models.CharField(max_length=30, unique=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    emailAddress = models.EmailField(verbose_name="email", max_length=60, unique=True)
-
-    def __str__(self) :
-        return self.username
