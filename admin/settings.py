@@ -90,7 +90,8 @@ DATABASES = {
     }
 }
 # Comment this line in local development
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+if (not env.bool("LOCAL_DEV", False)):
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

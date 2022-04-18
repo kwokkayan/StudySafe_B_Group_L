@@ -31,5 +31,10 @@ class TravelRecord(models.Model):
     uid = models.ForeignKey('HKUMember', related_name='visited', on_delete=models.CASCADE)
     time_of_entry = models.DateTimeField()
     time_of_exit = models.DateTimeField(null=True)
+    def clean(self):
+        if self.time_of_exit is not None and self.time_of_entry > self.time_of_exit:
+            raise ValidationError ({
+                'time_of_exit': ValidationError(("time_of_exit cannot be earlier than time_of_entry"))
+            })
     def __str__(self):
         return 'Travel Record ID: {}'.format(self.id)
