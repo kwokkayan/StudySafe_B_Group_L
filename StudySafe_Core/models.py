@@ -30,7 +30,7 @@ class TravelRecord(models.Model):
     venue_code =  models.ForeignKey('Venue', on_delete=models.CASCADE)
     uid = models.ForeignKey('HKUMember', related_name='visited', on_delete=models.CASCADE)
     time_of_entry = models.DateTimeField()
-    time_of_exit = models.DateTimeField(null=True)
+    time_of_exit = models.DateTimeField(null=True, blank=True)
     def clean(self):
         if self.time_of_exit is not None and self.time_of_entry > self.time_of_exit:
             raise ValidationError ({
