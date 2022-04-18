@@ -11,6 +11,13 @@ LOCAL_DEV=true
 - API Docs: https://studysafe-b-group-l.herokuapp.com/studysafe-core/api/docs
 - Admin Page: https://studysafe-b-group-l.herokuapp.com/admin
 ---
+## Features Completed
+### StudySafe Core
+- HKU Member model and API
+- Venue model and API
+- Travel Record model and API
+- Task force and device users registration
+---
 ## Registration of user accounts
 1. In the admin page, select the user group "Users".
 <img width="696" alt="Screenshot 2022-04-18 at 14 42 11" src="https://user-images.githubusercontent.com/67239147/163767098-e332209b-bb6d-4f2f-a3be-f53eb98fc06b.png">
