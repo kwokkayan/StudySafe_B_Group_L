@@ -9,9 +9,10 @@ from django.core.validators import EMPTY_VALUES
 class TaskforceAccount(AbstractUser):
     ROLES = (
         ('Device', 'Device'),
-        ('Member', 'Member')
+        ('Member', 'Member'),
+        ('Admin', 'Admin')
     )
-    role_type = models.CharField(max_length=10, choices=ROLES, default='Device')
+    role_type = models.CharField(max_length=10, choices=ROLES, default='Admin')
     def clean (self):
         if self.role_type == 'Member' and (self.email in EMPTY_VALUES or self.first_name in EMPTY_VALUES or self.last_name in EMPTY_VALUES):
             raise ValidationError ({
