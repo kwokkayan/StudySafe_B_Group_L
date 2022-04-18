@@ -19,7 +19,7 @@ LOCAL_DEV=true
 - Task force and device users registration
 ---
 ## Registration of user accounts
-1. In the admin page, select the user group "Users".
+1. login to the admin page using the admin account stated in the project document, select the user group "Users".
 <img width="696" alt="Screenshot 2022-04-18 at 14 42 11" src="https://user-images.githubusercontent.com/67239147/163767098-e332209b-bb6d-4f2f-a3be-f53eb98fc06b.png">
 2. Select "ADD USER".
 <img width="989" alt="Screenshot 2022-04-18 at 14 43 55" src="https://user-images.githubusercontent.com/67239147/163767393-2201b4f4-bf36-4ef2-9566-0efb4df86d0d.png">
