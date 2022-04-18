@@ -9,5 +9,5 @@ router.register(r'travel-records', TravelRecordViewSet, 'Travel Records')
 router.register(r'venues', VenueViewSet, 'venue')
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('api/docs/hku-members', TemplateView.as_view(template_name="hkumembers.html"), name='hkumembers-documentation')
+    path('api/docs', TemplateView.as_view(template_name="doc.html"), name='hkumembers-documentation')
 ]

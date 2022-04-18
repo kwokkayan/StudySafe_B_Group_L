@@ -3,7 +3,7 @@ info:
   title: ''
   version: ''
 paths:
-  /StudySafe_Core/api/hkumembers/:
+  /studysafe-core/api/hku-members/:
     get:
       operationId: listHKUMembers
       description: ''
@@ -18,7 +18,7 @@ paths:
                   $ref: '#/components/schemas/HKUMember'
           description: ''
       tags:
-      - StudySafe-Core
+      - studysafe-core
     post:
       operationId: createHKUMember
       description: ''
@@ -42,8 +42,8 @@ paths:
                 $ref: '#/components/schemas/HKUMember'
           description: ''
       tags:
-      - StudySafe-Core
-  /StudySafe_Core/api/hkumembers/{uid}/:
+      - studysafe-core
+  /studysafe-core/api/hku-members/{uid}/:
     get:
       operationId: retrieveHKUMember
       description: ''
@@ -62,7 +62,7 @@ paths:
                 $ref: '#/components/schemas/HKUMember'
           description: ''
       tags:
-      - StudySafe-Core
+      - studysafe-core
     put:
       operationId: updateHKUMember
       description: ''
@@ -92,7 +92,7 @@ paths:
                 $ref: '#/components/schemas/HKUMember'
           description: ''
       tags:
-      - StudySafe-Core
+      - studysafe-core
     patch:
       operationId: partialUpdateHKUMember
       description: ''
@@ -122,7 +122,7 @@ paths:
                 $ref: '#/components/schemas/HKUMember'
           description: ''
       tags:
-      - StudySafe-Core
+      - studysafe-core
     delete:
       operationId: destroyHKUMember
       description: ''
@@ -137,7 +137,277 @@ paths:
         '204':
           description: ''
       tags:
-      - StudySafe-Core
+      - studysafe-core
+  /studysafe-core/api/travel-records/:
+    get:
+      operationId: listTravelRecords
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TravelRecord'
+          description: ''
+      tags:
+      - studysafe-core
+    post:
+      operationId: createTravelRecord
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TravelRecord'
+          description: ''
+      tags:
+      - studysafe-core
+  /studysafe-core/api/travel-records/{id}/:
+    get:
+      operationId: retrieveTravelRecord
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this travel record.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TravelRecord'
+          description: ''
+      tags:
+      - studysafe-core
+    put:
+      operationId: updateTravelRecord
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this travel record.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TravelRecord'
+          description: ''
+      tags:
+      - studysafe-core
+    patch:
+      operationId: partialUpdateTravelRecord
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this travel record.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TravelRecord'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TravelRecord'
+          description: ''
+      tags:
+      - studysafe-core
+    delete:
+      operationId: destroyTravelRecord
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this travel record.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - studysafe-core
+  /studysafe-core/api/venues/:
+    get:
+      operationId: listVenues
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - studysafe-core
+    post:
+      operationId: createVenue
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - studysafe-core
+  /studysafe-core/api/venues/{Venue_Code}/:
+    get:
+      operationId: retrieveVenue
+      description: ''
+      parameters:
+      - name: Venue_Code
+        in: path
+        required: true
+        description: A unique value identifying this venue.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - studysafe-core
+    put:
+      operationId: updateVenue
+      description: ''
+      parameters:
+      - name: Venue_Code
+        in: path
+        required: true
+        description: A unique value identifying this venue.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - studysafe-core
+    patch:
+      operationId: partialUpdateVenue
+      description: ''
+      parameters:
+      - name: Venue_Code
+        in: path
+        required: true
+        description: A unique value identifying this venue.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Venue'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Venue'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Venue'
+          description: ''
+      tags:
+      - studysafe-core
+    delete:
+      operationId: destroyVenue
+      description: ''
+      parameters:
+      - name: Venue_Code
+        in: path
+        required: true
+        description: A unique value identifying this venue.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - studysafe-core
 components:
   schemas:
     HKUMember:
@@ -146,9 +416,78 @@ components:
         uid:
           type: string
           maxLength: 10
+        visited:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              time_of_entry:
+                type: string
+                format: date-time
+              time_of_exit:
+                type: string
+                format: date-time
+                nullable: true
+              venue_code:
+                type: string
+              uid:
+                type: string
+            required:
+            - time_of_entry
+            - venue_code
+            - uid
+          readOnly: true
         name:
           type: string
           maxLength: 150
       required:
       - uid
       - name
+    TravelRecord:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        time_of_entry:
+          type: string
+          format: date-time
+        time_of_exit:
+          type: string
+          format: date-time
+          nullable: true
+        venue_code:
+          type: string
+        uid:
+          type: string
+      required:
+      - time_of_entry
+      - venue_code
+      - uid
+    Venue:
+      type: object
+      properties:
+        Venue_Code:
+          type: string
+          maxLength: 20
+        Location:
+          type: string
+          maxLength: 150
+        Type:
+          enum:
+          - LT
+          - CR
+          - TR
+          type: string
+        Capacity:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - Venue_Code
+      - Location
+      - Type
+      - Capacity

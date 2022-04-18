@@ -7,6 +7,10 @@ class VenueSerializer(serializers.ModelSerializer):
         fields = '__all__'
                 
 class TravelRecordSerializer(serializers.ModelSerializer):
+    def validate(self, data):
+        if data["time_of_exit"] is not None and data["time_of_entry"] > data["time_of_exit"]:
+            raise serializers.ValidationError("Time of Exit cannot be earlier than Time of Entry")
+        return data
     class Meta:
         model = TravelRecord
         fields = '__all__'

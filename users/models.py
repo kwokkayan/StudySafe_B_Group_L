@@ -9,7 +9,8 @@ from django.core.validators import EMPTY_VALUES
 class TaskforceAccount(AbstractUser):
     ROLES = (
         ('Device', 'Device'),
-        ('Member', 'Member')
+        ('Member', 'Member'),
+        ('Admin', 'Admin')
     )
     role_type = models.CharField(max_length=10, choices=ROLES, default='Device')
     def clean (self):
