@@ -1,10 +1,15 @@
--- How to run
-1. Create .env in root
-2. goto heroku and find the secrets
-3. format as XXX=YYY
-d
-
-
+## Envrionment Variables
+.env should contain these variables for local development and testing
+```.env
+DJANGO_SECRET=**FIND ON HEROKU**
+DJANGO_DEBUG=true
+LOCAL_DEV=true
+```
+---
+## StudySafe Core Endpoints
+- API Root: https://studysafe-b-group-l.herokuapp.com/studysafe-core/api
+- API Docs: https://studysafe-b-group-l.herokuapp.com/studysafe-core/api/docs
+- Admin Page: https://studysafe-b-group-l.herokuapp.com/admin
 ---
 ## Registration of user accounts
 1. In the admin page, select the user group "Users".
