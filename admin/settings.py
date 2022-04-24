@@ -64,7 +64,7 @@ ROOT_URLCONF = 'admin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR), 'templates', os.path.join(BASE_DIR), 'api_documentation'],
+        'DIRS': ['templates', 'api_documentation'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# Comment this line in local development
 if (not env.bool("LOCAL_DEV", False)):
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
