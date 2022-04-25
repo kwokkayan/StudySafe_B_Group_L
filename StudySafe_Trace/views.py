@@ -43,9 +43,9 @@ class VenuesView(BaseView):
                 ddate = context["date"] - time_of_entry.date()
                 print(ddate)
                 if 0 <= ddate.days <= 2:
-                    time_of_exit = datetime.fromisoformat(v["time_of_exit"])
-                    dt = time_of_exit - time_of_entry
-                    if dt.total_seconds() >= 1800: # 30 mins
-                        context["venues"].append(v["venue_code"])
+                    # time_of_exit = datetime.fromisoformat(v["time_of_exit"])
+                    # dt = time_of_exit - time_of_entry
+                    # if dt.total_seconds() >= 1800: # 30 mins
+                    context["venues"].append(v["venue_code"])
             context["venues"].sort()
         return context
