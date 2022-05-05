@@ -24,12 +24,12 @@ class ContactsView(BaseView):
     template_name = "contacts.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if context["user_found"]:
+        if context["user_found"] and context["travel_records_found"]:
             # add venues logic
             visited = self.result["visited"]
             context["contacts"] = []
             for user_visited in visited:
-                for other_visited in  self.travel_records:
+                for other_visited in self.travel_records:
                     if user_visited["time_of_exit"] is None or other_visited["time_of_exit"] is None:
                         continue
                     if user_visited["uid"] == other_visited["uid"]:
@@ -41,9 +41,9 @@ class ContactsView(BaseView):
                     # check for overlap
                     if (user_entry >= other_entry and user_entry <= other_exit) or (other_entry >= user_entry and other_entry <= user_exit): 
                         dt = min(user_exit, other_exit) - max(user_entry, other_entry)
-                        print(user_visited["id"], other_visited["id"])
+                        print(user_visited["uid"], other_visited["uid"])
                         print("dt1 =", dt)
-                        if (dt.total_seconds() > 1800): # 30 mins overlap
+                        if (dt.total_seconds() >= 1800): # 30 mins overlap
                             if other_visited["uid"] not in context["contacts"]: # only unique
                                 context["contacts"].append(other_visited["uid"])
             context["contacts"].sort()
@@ -51,7 +51,6 @@ class ContactsView(BaseView):
 
 class VenuesView(BaseView):
     template_name = "venues.html"
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if context["user_found"]:
