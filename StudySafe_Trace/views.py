@@ -41,8 +41,8 @@ class ContactsView(BaseView):
                     # check for overlap
                     if (user_entry >= other_entry and user_entry <= other_exit) or (other_entry >= user_entry and other_entry <= user_exit): 
                         dt = min(user_exit, other_exit) - max(user_entry, other_entry)
-                        print(user_visited["uid"], other_visited["uid"])
-                        print("dt1 =", dt)
+                        # print(user_visited["uid"], other_visited["uid"])
+                        # print("dt1 =", dt)
                         if (dt.total_seconds() >= 1800): # 30 mins overlap
                             if other_visited["uid"] not in context["contacts"]: # only unique
                                 context["contacts"].append(other_visited["uid"])
@@ -63,7 +63,7 @@ class VenuesView(BaseView):
                 time_of_entry = datetime.fromisoformat(v["time_of_entry"])
                 # check entry and onset dates
                 ddate = context["date"] - time_of_entry.date()
-                print(ddate)
+                # print(ddate)
                 if 0 <= ddate.days <= 2:
                     if v["venue_code"] not in context["venues"]:
                         context["venues"].append(v["venue_code"])
