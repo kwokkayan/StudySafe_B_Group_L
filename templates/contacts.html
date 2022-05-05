@@ -45,13 +45,17 @@
 
 {% block details %}
     <div class="block">
-      <div class="label">Close contacts during infectious period:</div>
-      <div class="data">
-        <ul>
-          {% for contact in contacts %}
-            <li>{{ contact }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if travel_records_found %}
+        <div class="label">Close contacts during infectious period:</div>
+        <div class="data">
+          <ul>
+            {% for contact in contacts %}
+              <li>{{ contact }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% else %}
+        <div class="label">Travel records cannot be fetched.</div>
+      {% endif %}
     </div>
 {% endblock %}

@@ -73,23 +73,33 @@
     </style>
   </head>
   <body>
-    {% block header %}
-    <header>
-      <h1>CONTACTS</h1>
-    </header>
-    {% endblock %}
-    <div class="main-content">
-      <div class="info">
-        <div class="block">
-          <div class="label">Subject:</div>
-          <div class="data">{{ subject }}</div>
+    {% if user_found %}
+      {% block header %}
+      <header>
+        <h1>CONTACTS</h1>
+      </header>
+      {% endblock %}
+      <div class="main-content">
+        <div class="info">
+          <div class="block">
+            <div class="label">Subject:</div>
+            <div class="data">{{ subject }}</div>
+          </div>
+          <div class="block">
+            <div class="label">Date of onset/diagnosis:</div>
+            <div class="data">{{ date }}</div>
+          </div>
         </div>
+        {% block details %}
+        {% endblock %}
+      </div> 
+    {% else %}
+    <!-- Please add design -->
+      <div class="main-content">
         <div class="block">
-          <div class="label">Date of onset/diagnosis:</div>
-          <div class="data">{{ date }}</div>
+          <div class="label">User not found</div>
         </div>
       </div>
-      {% block details %}
-      {% endblock %}
-    </div>  </body>
+    {% endif %}
+  </body>
 </html>
