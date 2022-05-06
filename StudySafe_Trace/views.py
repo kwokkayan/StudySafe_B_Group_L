@@ -29,23 +29,28 @@ class ContactsView(BaseView):
             visited = self.result["visited"]
             context["contacts"] = []
             for user_visited in visited:
-                for other_visited in self.travel_records:
-                    if user_visited["time_of_exit"] is None or other_visited["time_of_exit"] is None:
-                        continue
-                    if user_visited["uid"] == other_visited["uid"]:
-                        continue
-                    user_entry = datetime.fromisoformat(user_visited["time_of_entry"])
-                    user_exit = datetime.fromisoformat(user_visited["time_of_exit"])
-                    other_entry = datetime.fromisoformat(other_visited["time_of_entry"])
-                    other_exit = datetime.fromisoformat(other_visited["time_of_exit"])
-                    # check for overlap
-                    if (user_entry >= other_entry and user_entry <= other_exit) or (other_entry >= user_entry and other_entry <= user_exit): 
-                        dt = min(user_exit, other_exit) - max(user_entry, other_entry)
-                        # print(user_visited["uid"], other_visited["uid"])
-                        # print("dt1 =", dt)
-                        if (dt.total_seconds() >= 1800): # 30 mins overlap
-                            if other_visited["uid"] not in context["contacts"]: # only unique
-                                context["contacts"].append(other_visited["uid"])
+                user_entry = datetime.fromisoformat(user_visited["time_of_entry"])
+                ddate = context["date"] - user_entry.date()
+                if 0 <= ddate.days <= 2:
+                    for other_visited in self.travel_records:
+                        if user_visited["time_of_exit"] is None or other_visited["time_of_exit"] is None:
+                            continue
+                        if user_visited["uid"] == other_visited["uid"]:
+                            continue
+                        if user_visited["venue_code"] != other_visited["venue_code"]:
+                            continue
+                        user_exit = datetime.fromisoformat(user_visited["time_of_exit"])
+                        other_entry = datetime.fromisoformat(other_visited["time_of_entry"])
+                        other_exit = datetime.fromisoformat(other_visited["time_of_exit"])
+                        # check for overlap
+                        if (user_entry >= other_entry and user_entry <= other_exit) or (other_entry >= user_entry and other_entry <= user_exit): 
+                            dt = min(user_exit, other_exit) - max(user_entry, other_entry)
+                            # print(user_entry, user_exit, other_entry, other_exit)
+                            # print(user_visited["uid"], other_visited["uid"], user_visited["venue_code"], other_visited["venue_code"])
+                            # print("dt1 =", dt)
+                            if (dt.total_seconds() >= 1800): # 30 mins overlap
+                                if other_visited["uid"] not in context["contacts"]: # only unique
+                                    context["contacts"].append(other_visited["uid"])
             context["contacts"].sort()
         return context
 
