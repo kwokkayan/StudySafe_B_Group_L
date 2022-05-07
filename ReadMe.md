@@ -25,6 +25,7 @@ LOCAL_DEV=true
 - Note: UID is a string with a maximum of 10 characters, DATE is a string with format "YYYY-MM-DD". 
         If the format is not followed, a HTTP 404 response will be returned.
 - Sample URL: https://studysafe-b-group-l-trace.herokuapp.com/studysafe-trace/contacts/3025704501/2022-05-05
+Note: Admin account information is as specified
 ---
 ## Features Completed
 ### StudySafe Core
