@@ -1,3 +1,11 @@
+## Project Information
+- StudySafe Core is contained in the app *StudySafe_Core*
+- StudySafe Trace is contained in the app *StudySafe_Trace*
+- Custom user model for Taskforce member and device is contained in the app *users*
+---
+## Limitations
+- Currently, no limitations are discovered and all functionalities work as specified.
+---
 ## Envrionment Variables
 .env should contain these variables for local development and testing
 ```.env
@@ -6,10 +14,17 @@ DJANGO_DEBUG=true
 LOCAL_DEV=true
 ```
 ---
-## StudySafe Core Endpoints
+## Endpoints
+### StudySafe Core
 - API Root: https://studysafe-b-group-l.herokuapp.com/studysafe-core/api
 - API Docs: https://studysafe-b-group-l.herokuapp.com/studysafe-core/api/docs
 - Admin Page: https://studysafe-b-group-l.herokuapp.com/admin
+### StudySafe Trace
+- Venues: https://studysafe-b-group-l.herokuapp.com/studysafe-trace/venues/[UID]/[DATE]
+- Contacts: https://studysafe-b-group-l.herokuapp.com/studysafe-trace/venues/[UID]/[DATE]
+- Note: UID is a string with a maximum of 10 characters, DATE is a string with format "YYYY-MM-DD". 
+        If the format is not followed, a HTTP 404 response will be returned.
+- Sample URL: https://studysafe-b-group-l.herokuapp.com/studysafe-trace/contacts/3025704501/2022-05-05
 ---
 ## Features Completed
 ### StudySafe Core
@@ -17,6 +32,10 @@ LOCAL_DEV=true
 - Venue model and API
 - Travel Record model and API
 - Task force and device users registration
+### StudySafe Trace
+- Constraint checking for endpoints
+- /venues/ view and logic
+- /contacts/ view and logic
 ---
 ## Registration of user accounts
 1. login to the admin page using the admin account stated in the project document, select the user group "Users".
