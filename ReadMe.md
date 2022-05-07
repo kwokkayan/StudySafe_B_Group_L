@@ -1,7 +1,7 @@
 ## Project Information
-- StudySafe Core is contained in the app *StudySafe_Core*
-- StudySafe Trace is contained in the app *StudySafe_Trace*
-- Custom user model for Taskforce member and device is contained in the app *users*
+- StudySafe Core is contained in the app *core/StudySafe_Core*
+- StudySafe Trace is contained in the app *trace/StudySafe_Trace*
+- Custom user model for Taskforce member and device is contained in the app *core/users*
 ---
 ## Limitations
 - Currently, no limitations are discovered and all functionalities work as specified.
@@ -20,11 +20,11 @@ LOCAL_DEV=true
 - API Docs: https://studysafe-b-group-l.herokuapp.com/studysafe-core/api/docs
 - Admin Page: https://studysafe-b-group-l.herokuapp.com/admin
 ### StudySafe Trace
-- Venues: https://studysafe-b-group-l.herokuapp.com/studysafe-trace/venues/[UID]/[DATE]
-- Contacts: https://studysafe-b-group-l.herokuapp.com/studysafe-trace/venues/[UID]/[DATE]
+- Venues: https://studysafe-b-group-l-trace.herokuapp.com/studysafe-trace/venues/[UID]/[DATE]
+- Contacts: https://studysafe-b-group-l-trace.herokuapp.com/studysafe-trace/venues/[UID]/[DATE]
 - Note: UID is a string with a maximum of 10 characters, DATE is a string with format "YYYY-MM-DD". 
         If the format is not followed, a HTTP 404 response will be returned.
-- Sample URL: https://studysafe-b-group-l.herokuapp.com/studysafe-trace/contacts/3025704501/2022-05-05
+- Sample URL: https://studysafe-b-group-l-trace.herokuapp.com/studysafe-trace/contacts/3025704501/2022-05-05
 ---
 ## Features Completed
 ### StudySafe Core
