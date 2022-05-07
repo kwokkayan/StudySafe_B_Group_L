@@ -37,7 +37,6 @@ ALLOWED_HOSTS = ['studysafe-b-group-l.herokuapp.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'StudySafe_Core.apps.StudysafeCoreConfig',
-    'StudySafe_Trace.apps.StudysafeTraceConfig',
     'users.apps.UsersConfig',
     'rest_framework',
     'django.contrib.admin',
@@ -64,7 +63,7 @@ ROOT_URLCONF = 'admin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates', 'api_documentation'],
+        'DIRS': ['api_documentation'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
